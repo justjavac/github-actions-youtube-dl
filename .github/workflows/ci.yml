@@ -1,0 +1,21 @@
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+
+      - name: download
+        run: |
+          git config --local user.email "justjavac@gmail.com"
+          git config --local user.name "迷渡"
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git pull --rebase
+          ./bin/youtube-dl --config-location config.txt
+          git add .
+          git commit -m "download youtube video"
+          git push

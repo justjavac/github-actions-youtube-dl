@@ -1,0 +1,9 @@
+--batch-file playlist.txt
+--output downloads/%(title)s_%(id)s.%(ext)s
+--continue
+# --write-description
+# --write-info-json
+# --write-thumbnail
+
+# --external-downloader bin/aria2c
+# --external-downloader-args '-c -x 16 -k 1M'
