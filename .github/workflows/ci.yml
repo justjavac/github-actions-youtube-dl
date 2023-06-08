@@ -5,6 +5,10 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      
     steps:
       - name: Clone repository
         uses: actions/checkout@v3
